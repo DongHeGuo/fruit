@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+
+mybatis:
+  # mapper文件位置
+  mapper-locations: classpath:mapper/**/*.xml
+  # 实体扫描
+  type-aliases-package: com.boot.module.entity
+  # 配置日志输出
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

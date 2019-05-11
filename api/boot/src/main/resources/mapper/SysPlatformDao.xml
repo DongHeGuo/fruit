@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.boot.module.dao.SysPlatformDao">
+    <!--查询平台信息-->
+    <select id="getInfo" parameterType="int" resultType="com.boot.module.entity.SysPlatform">
+        SELECT
+            platformId, platformType, platformName, phoneNumber, postageArea,
+            postageFee, advImg, province, city, area, address, longitude, latitude
+        FROM sys_platform
+        WHERE platformType = #{platformType}
+    </select>
+
+    <!--添加平台信息-->
+    <insert id="insert" parameterType="com.boot.module.entity.SysPlatform" useGeneratedKeys="true" keyProperty="platformId">
+        INSERT INTO sys_platform (
+            platFormType,
+            platformName,
+            phoneNumber,
+            postageArea,
+            postageFee,
+            advImg,
+            province,
+            city,
+            area,
+            address,
+            longitude,
+            latitude
+        ) VALUES (
+            #{platFormType},
+            #{platformName},
+            #{phoneNumber},
+            #{postageArea},
+            #{postageFee},
+            #{advImg},
+            #{province},
+            #{city},
+            #{area},
+            #{address},
+            #{longitude},
+            #{latitude}
+        )
+    </insert>
+
+    <!--更新平台信息-->
+    <update id="update" parameterType="com.boot.module.entity.SysPlatform">
+        UPDATE sys_platform
+        <set>
+            platformName = #{platformName},
+            phoneNumber = #{phoneNumber},
+            postageArea = #{postageArea},
+            postageFee = #{postageFee},
+            advImg = #{advImg},
+            province = #{province},
+            city = #{city},
+            area = #{area},
+            address = #{address},
+            longitude = #{longitude},
+            latitude = #{latitude}
+        </set>
+        WHERE platformId = #{platformId}
+    </update>
+</mapper>

@@ -1,0 +1,5 @@
+jwt:
+  secret: QBXMQzhlGh8n0Y2D6VIbhjPc2dlec8aiCRRW
+  tokenHeader: token
+
+fileSavePath: E:\\test\\
